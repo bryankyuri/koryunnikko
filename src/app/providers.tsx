@@ -1,5 +1,5 @@
 "use client";
-import { ThemeProvider } from "next-themes";
+
 // import { Header } from "./_lib/Header";
 import { useContext } from "react";
 import { AppContext } from "./_lib/Context/appContext";
@@ -23,35 +23,33 @@ export function Providers({ children }: { children: React.ReactNode }) {
   // screenWidth > 0 ? (screenWidth > 1080 ? "Desktop" : "Mobile") : "Loading";
 
   return (
-    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-      <AnimatePresence>
-        {deviceType === "Loading" ? (
-          <motion.div
-            className="w-full h-screen flex flex-col justify-center items-center"
-            variants={varFadeInOut}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-          >
-            <Image
-              src={"/logo-esc.png"}
-              alt=""
-              width={150}
-              height={150}
-              className="mb-4"
-              priority
-            />
-            <span className="text-[16px]">Loading...</span>
-          </motion.div>
-        ) : (
-          deviceType && (
-            <>
-              <HeaderMobile />
-              <main>{children}</main>
-            </>
-          )
-        )}
-      </AnimatePresence>
-    </ThemeProvider>
+    <AnimatePresence>
+      {deviceType === "Loading" ? (
+        <motion.div
+          className="w-full h-screen flex flex-col justify-center items-center"
+          variants={varFadeInOut}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+        >
+          <Image
+            src="/logo.jpg"
+            alt="logo"
+            width={94}
+            height={57}
+            className="mb-4"
+            priority
+          />
+          <span className="text-[16px]">Loading...</span>
+        </motion.div>
+      ) : (
+        deviceType && (
+          <>
+            <HeaderMobile />
+            <main>{children}</main>
+          </>
+        )
+      )}
+    </AnimatePresence>
   );
 }
