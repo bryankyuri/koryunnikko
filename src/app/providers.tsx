@@ -42,6 +42,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
           />
           <span className="text-[16px]">Loading...</span>
         </motion.div>
+        
       ) : (
         deviceType && (
           <>
