@@ -1,101 +1,356 @@
+"use client";
+
 import Image from "next/image";
+import React from "react";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+
+// import required modules
+import { Navigation } from "swiper/modules";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+    <>
+      <div className="w-full flex justify-center ">
+        <div className="max-w-[410px] shadow-md w-full pt-8 pb-[150px]">
+          <div className=" font-bold w-full text-center text-2xl">
+            RAMBUT BERMASALAH <br />
+            KARENA LEMBAB?
+          </div>
+          <div className=" text-red-600  font-bold italic w-full text-center text-[16px] my-4">
+            WASPADA AKAN DAMPAK RAMBUT LEMBAB
+          </div>
+          <div className="bg-slate-100 py-4">
+            <div className="flex p-4 justify-center items-center ">
+              <Image
+                src="/dampak1.jpg"
+                alt="ketombe"
+                width={177}
+                height={118}
+                priority
+                className="shadow-md border-4 border-red-500"
+              />
+              <div
+                className="font-bold ml-4 text-center text-2xl italic"
+                style={{ fontFamily: "times-new-roman" }}
+              >
+                KETOMBE
+              </div>
+            </div>
+            <div className="flex p-4 justify-center items-center my-8">
+              <div
+                className="font-bold mr-4 text-center text-2xl italic"
+                style={{ fontFamily: "times-new-roman" }}
+              >
+                KEBOTAKAN
+              </div>
+              <Image
+                src="/dampak2.jpg"
+                alt="kebotakan"
+                width={177}
+                height={118}
+                priority
+                className="shadow-md border-4 border-red-500"
+              />
+            </div>
+            <div className="flex p-4 justify-center items-center">
+              <Image
+                src="/dampak3.jpg"
+                alt="infeksi"
+                width={177}
+                height={118}
+                priority
+                className="shadow-md border-4 border-red-500"
+              />
+              <div
+                className="font-bold ml-4 text-center text-2xl italic"
+                style={{ fontFamily: "times-new-roman" }}
+              >
+                INFEKSI
+              </div>
+            </div>
+          </div>
+          <div className="w-full flex justify-center py-4">
             <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src="/tips1.webp"
+              alt="infeksi"
+              width={400}
+              height={400}
+              priority
+              className=""
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
+          </div>
+
+          <div className="font-bold  w-full text-center text-xl mt-4 py-8 bg-orange-500 text-white">
+            <div className="text-xl">
+              SEGERA ATASI RAMBUT LEMBAB <br /> ANDA DENGAN
+            </div>
+          </div>
+
+          <div className="w-full bg-slate-100 pb-[30px] pt-8">
+            <div className="w-full flex justify-center ml-3">
+              <a
+                href="https://shopee.co.id/CATOKAN-MURAH-Catok-KN-129-Koryu-Nikko-PROMO-i.40879198.2393068072?sp_atk=07b1d348-031e-41ee-8a6c-1cdd0d9d6319&xptdk=07b1d348-031e-41ee-8a6c-1cdd0d9d6319"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image
+                  src="/title.png"
+                  alt="koryunikko"
+                  width={380}
+                  height={115}
+                  priority
+                />
+              </a>
+            </div>
+            <Swiper
+              navigation={true}
+              modules={[Navigation]}
+              className="mySwiper"
+            >
+              <SwiperSlide>
+                <div className="w-full flex justify-center py-4">
+                  <Image
+                    src="/product1.webp"
+                    alt="koryunikko"
+                    width={380}
+                    height={380}
+                    priority
+                    className="shadow-md border-8 border-red-500"
+                  />
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="w-full flex justify-center py-4">
+                  <Image
+                    src="/product2.webp"
+                    alt="koryunikko"
+                    width={380}
+                    height={380}
+                    priority
+                    className="shadow-md border-8 border-red-500"
+                  />
+                </div>
+              </SwiperSlide>
+
+              <SwiperSlide>
+                <div className="w-full flex justify-center py-4">
+                  <Image
+                    src="/product3.webp"
+                    alt="koryunikko"
+                    width={380}
+                    height={380}
+                    priority
+                    className="shadow-md border-8 border-red-500"
+                  />
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="w-full flex justify-center py-4">
+                  <Image
+                    src="/product4.webp"
+                    alt="koryunikko"
+                    width={380}
+                    height={380}
+                    priority
+                    className="shadow-md border-8 border-red-500"
+                  />
+                </div>
+              </SwiperSlide>
+            </Swiper>
+            <div className="px-2 flex justify-start mt-[-80px] z-10 relative ml-2 animate-bounce">
+              <Image
+                src="/price1.png"
+                alt="koryunikko"
+                width={180}
+                height={125}
+                priority
+              />
+            </div>
+            <div className="px-2 flex justify-end mt-[-65px] z-10 relative mr-4">
+              <Image
+                src="/garansi1.png"
+                alt="garansi"
+                width={160}
+                height={125}
+                priority
+              />
+            </div>
+
+            <div className="w-full flex justify-center mt-[35px] z-10 relative">
+              <Image
+                src="/pesan.png"
+                alt="pesan"
+                width={300}
+                height={70}
+                priority
+              />
+            </div>
+          </div>
+
+          <div className=" clear-none"></div>
+          <div className="p-4 flex justify-center">
+            <iframe
+              width="360"
+              height="220"
+              src="https://www.youtube.com/embed/OBJegjgodNk?si=xgt0TuD5mmxOjVyj"
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;"
+            />
+          </div>
+          <div className="bg-orange-500 text-white">
+            <div className="w-full py-4 px-8 ">
+              <div className="font-bold text-2xl mb-6">Keunggulan Produk </div>
+              <ol
+                className="list-decimal font-medium"
+                style={{ fontFamily: "arial" }}
+              >
+                <div className="flex my-2">
+                  <Image
+                    src="/list.png"
+                    alt="list"
+                    width={25}
+                    height={12}
+                    priority
+                    className="mr-2"
+                  />
+                  <div className="font-medium">
+                    Bahan kualitas internasional
+                  </div>
+                </div>
+                <div className="flex my-2">
+                  <Image
+                    src="/list.png"
+                    alt="list"
+                    width={25}
+                    height={12}
+                    priority
+                    className="mr-2"
+                  />
+                  <div className="font-medium">Ceramic ion Technology</div>
+                </div>
+                <div className="flex my-2">
+                  <Image
+                    src="/list.png"
+                    alt="list"
+                    width={25}
+                    height={12}
+                    priority
+                    className="mr-2"
+                  />
+                  <div className="font-medium">
+                    Ion negatif agar rambut lembut dan berkilau
+                  </div>
+                </div>
+                <div className="flex my-2">
+                  <Image
+                    src="/list.png"
+                    alt="list"
+                    width={25}
+                    height={12}
+                    priority
+                    className="mr-2"
+                  />
+                  <div className="font-medium">Cocok untuk rambut sensitif</div>
+                </div>
+                <div className="flex my-2">
+                  <Image
+                    src="/list.png"
+                    alt="list"
+                    width={25}
+                    height={12}
+                    priority
+                    className="mr-2"
+                  />
+                  <div className="font-medium">Garansi 6 bulan</div>
+                </div>
+              </ol>
+            </div>
+
+            <div className="w-full py-4 px-8 ">
+              <div className="font-bold text-2xl mb-6 mt-6">
+                Spesifikasi produk{" "}
+              </div>
+              <ol
+                className="list-decimal font-medium"
+                style={{ fontFamily: "arial" }}
+              >
+                <div className="flex my-2">
+                  <Image
+                    src="/list.png"
+                    alt="list"
+                    width={25}
+                    height={12}
+                    priority
+                    className="mr-2"
+                  />
+                  <div className="font-medium">Warna Hitam dan putih</div>
+                </div>
+                <div className="flex my-2">
+                  <Image
+                    src="/list.png"
+                    alt="list"
+                    width={25}
+                    height={12}
+                    priority
+                    className="mr-2"
+                  />
+                  <div className="font-medium">Lebar pelat 2” (±5 cm)</div>
+                </div>
+                <div className="flex my-2">
+                  <Image
+                    src="/list.png"
+                    alt="list"
+                    width={25}
+                    height={12}
+                    priority
+                    className="mr-2"
+                  />
+                  <div className="font-medium">Berat 281 gram</div>
+                </div>
+                <div className="flex my-2">
+                  <Image
+                    src="/list.png"
+                    alt="list"
+                    width={25}
+                    height={12}
+                    priority
+                    className="mr-2"
+                  />
+                  <div className="font-medium">Listrik 55 W (220-240 V)</div>
+                </div>
+                <div className="flex my-2">
+                  <Image
+                    src="/list.png"
+                    alt="list"
+                    width={25}
+                    height={12}
+                    priority
+                    className="mr-2"
+                  />
+                  <div className="font-medium">Sistem pengaturan suhu</div>
+                </div>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="w-full flex justify-center fixed bottom-0 left-0 bg-white shadow-inner z-10 pt-4">
+        <div className="w-full relative flex justify-center mb-4">
+          <div className="w-full animate-pulse bg-orange-500 absolute z-0"></div>
+          <a className="px-4 py-3 flex rounded-xl bg-orange-500 z-1 max-w-[250px] mb-4">
+            <Image src="/cart.png" alt="cart" width={25} height={10} priority />
+            <div className="font-bold text-lg text-white ml-4">
+              PESAN SEKARANG
+            </div>
           </a>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </div>
+    </>
   );
 }
