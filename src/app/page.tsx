@@ -11,7 +11,6 @@ import "swiper/css/navigation";
 
 // import required modules
 import { Navigation } from "swiper/modules";
-import Link from "next/link";
 
 export default function Home() {
   return (

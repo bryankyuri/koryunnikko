@@ -1,5 +1,5 @@
 'use client'
-import { Dispatch, SetStateAction, createContext, useCallback, useContext, useEffect, useState } from "react";
+import { createContext, useCallback,useEffect, useState } from "react";
 
 type Context = {
   handleLoading: (value: boolean) => void;
@@ -16,6 +16,7 @@ export const AppProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isLoading, setIsloading] = useState<boolean>(false);
   const [screenWidth, setScreenWidth] = useState<number>(-1);
 

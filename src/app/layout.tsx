@@ -1,6 +1,6 @@
 "useClient";
 import type { Metadata } from "next";
-import { Poppins, Roman } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 import { AppProvider } from "./_lib/Context/appContext";
