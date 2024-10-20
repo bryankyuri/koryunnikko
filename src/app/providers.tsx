@@ -1,11 +1,13 @@
 "use client";
 
 // import { Header } from "./_lib/Header";
-import { useContext } from "react";
+import { useContext,} from "react";
 import { AppContext } from "./_lib/Context/appContext";
+
 import Image from "next/image";
 import { HeaderMobile } from "./_lib/Header/mobile";
 import { motion, AnimatePresence } from "framer-motion";
+;
 
 const varFadeInOut = {
   hidden: { opacity: 1 },
@@ -20,6 +22,8 @@ const varFadeInOut = {
 export function Providers({ children }: { children: React.ReactNode }) {
   const { screenWidth } = useContext(AppContext);
   const deviceType = screenWidth > 0 ? "Mobile" : "Loading";
+
+
   // screenWidth > 0 ? (screenWidth > 1080 ? "Desktop" : "Mobile") : "Loading";
 
   return (
@@ -42,7 +46,6 @@ export function Providers({ children }: { children: React.ReactNode }) {
           />
           <span className="text-[16px]">Loading...</span>
         </motion.div>
-        
       ) : (
         deviceType && (
           <>
