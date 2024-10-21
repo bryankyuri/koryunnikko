@@ -37,9 +37,9 @@ export function Providers({ children }: { children: React.ReactNode }) {
           exit="exit"
         >
           <Image
-            src="/logo.jpg"
+            src="/logo-koryu.png"
             alt="logo"
-            width={94}
+            width={57}
             height={57}
             className="mb-4"
             priority

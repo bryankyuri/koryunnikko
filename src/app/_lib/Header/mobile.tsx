@@ -38,7 +38,7 @@ export const HeaderMobile = () => {
           <GiHamburgerMenu />
         </button> */}
         <button onClick={() => setShowModalAbout(true)}>
-          <Image src="/logo.jpg" alt="logo" width={94} height={57} priority />
+          <Image src="/logo-koryu.png" alt="logo" width={57} height={57} priority />
         </button>
 
         {/* <ThemeSwitch /> */}

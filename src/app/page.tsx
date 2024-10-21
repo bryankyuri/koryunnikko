@@ -20,6 +20,9 @@ import { FaArrowTrendDown } from "react-icons/fa6";
 import { GoStarFill } from "react-icons/go";
 import { TbTruckDelivery, TbTruckReturn } from "react-icons/tb";
 import { HiShieldCheck } from "react-icons/hi";
+import { RiShoppingCartFill } from "react-icons/ri";
+import { dataTestimoni } from "./_lib/model/arrayTestimoni";
+import { AiTwotoneLike } from "react-icons/ai";
 
 export default function Home() {
   const { dateVisit } = useContext(AppContext);
@@ -323,9 +326,7 @@ export default function Home() {
             />
           </div> */}
 
-          <div className=" clear-none"></div>
-          <div className="p-4 flex justify-center"></div>
-          <div className="bg-[#bd1c2e] text-white">
+          <div className="bg-[#bd1c2e] text-white mt-8">
             <div className="w-full py-4 px-6 ">
               <div className="font-bold text-2xl mb-6">
                 Keunggulan Catokan KN 129{" "}
@@ -349,7 +350,9 @@ export default function Home() {
                     <span className="font-semibold">
                       Kualitas internasional :&nbsp;
                     </span>
-                    <span className="font-normal text-[13px] nunito">Japan approved</span>
+                    <span className="font-normal text-[13px] nunito">
+                      Japan approved
+                    </span>
                   </div>
                 </div>
                 <div className="flex my-2">
@@ -367,7 +370,10 @@ export default function Home() {
                     <span className="font-semibold">
                       Technologi canggih :&nbsp;
                     </span>
-                    <span className="font-normal text-[13px] nunito">Lapisan ceramic ion pada plat catokan dan ion negatif untuk melindungi rambut dari panas</span>
+                    <span className="font-normal text-[13px] nunito">
+                      Lapisan ceramic ion pada plat catokan dan ion negatif
+                      untuk melindungi rambut dari panas
+                    </span>
                   </div>
                 </div>
                 <div className="flex my-2">
@@ -378,27 +384,93 @@ export default function Home() {
                       width={25}
                       height={12}
                       priority
-                    
                     />
                   </div>
                   <div className="">
-                    <span className="font-semibold">
-                      Aman :&nbsp;
+                    <span className="font-semibold">Aman :&nbsp;</span>
+                    <span className="font-normal text-[13px] nunito">
+                      Direkomendasikan pemakaian pada rambut rusak atau sensitif
                     </span>
-                    <span className="font-normal text-[13px] nunito">Direkomendasikan pemakaian pada rambut rusak atau sensitif</span>
                   </div>
                 </div>
               </ol>
             </div>
           </div>
+          <div className="p-4 flex flex-col items-center justify-center">
+            <div className="w-full font-semibold text-center text-lg mt-8">
+              Penilaian Produk
+            </div>
+            <div className="w-full text-center flex justify-center">
+              <div className="w-full text-yellow-500 flex  items-center justify-center">
+                <GoStarFill />
+                <GoStarFill />
+                <GoStarFill />
+                <GoStarFill />
+                <GoStarFill />
+                <div className="ml-2 text-[12px] font-medium text-red-800 nunito">
+                  4.9/5
+                </div>
+                <div className="ml-2 text-[12px] text-gray-600  nunito">
+                  (300++ Ulasan)
+                </div>
+              </div>
+            </div>
+          </div>
+          {dataTestimoni().map((item, index) => {
+            return (
+              <div className="w-full p-4 my-4 shadow-d" key={"testi" + index}>
+                <div className="w-full flex justify-between items-start">
+                  <div className="flex items-start">
+                    <div className="w-[24px] h-[24px] rounded-full shadow-d">
+                      <Image
+                        src={item.profilePic}
+                        alt="pp"
+                        width={24}
+                        height={24}
+                        className="rounded-full shadow-d"
+                      />
+                    </div>
+                    <div className="ml-2">
+                      <div className="font-light leading-none mb-1">
+                        {item.username}
+                      </div>
+                      <div className="w-full text-yellow-500 flex  items-center text-[12px]">
+                        <GoStarFill />
+                        <GoStarFill />
+                        <GoStarFill />
+                        <GoStarFill />
+                        <GoStarFill />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex items-center">
+                    <AiTwotoneLike />
+                    <div className="ml-2 text-[12px]">{`Membantu (${item.like})`}</div>
+                  </div>
+                </div>
+                <div className="w-full flex justify-between items-start text-[13px] mt-4 text-justify">
+                  {item.desc}
+                </div>
+                <div className="w-full flex justify-start items-start mt-4 mb-2 gap-[8px]">
+                  {item.image.map((itemImage, index) => {
+                    return (
+                      <div className="w-[32%] h-[115px] flex shadow-d" key={"image" + index}>
+                        <Image src={itemImage} alt="pesan" width={125} height={125}/>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
       <div className="w-full flex justify-center fixed bottom-0 left-0 bg-white shadow-inner z-10 pt-4">
         <div className="w-full relative flex justify-center mb-4">
           <div className="w-full animate-pulse bg-orange-500 absolute z-0"></div>
-          <a className="px-4 py-3 flex rounded-xl bg-orange-500 z-1 max-w-[250px] mb-4">
-            <Image src="/cart.png" alt="cart" width={25} height={10} priority />
-            <div className="font-bold text-lg text-white ml-4">
+          <a className="px-4 py-3 flex rounded-xl bg-orange-500 z-1 max-w-[250px] mb-4 items-center">
+            <RiShoppingCartFill className="text-[32px] text-white" />
+            <div className="font-semibold text-lg text-white ml-2 leading-none nunito">
               PESAN SEKARANG
             </div>
           </a>
