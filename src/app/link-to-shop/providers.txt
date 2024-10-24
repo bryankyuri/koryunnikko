@@ -2,9 +2,10 @@
 
 // import { Header } from "./_lib/Header";
 import { useContext,} from "react";
-import { AppContext } from "./_lib/Context/appContext";
+import { AppContext } from "../_lib/Context/appContext";
 
 import Image from "next/image";
+// import { HeaderMobile } from "../_lib/Header/mobile";
 import { motion, AnimatePresence } from "framer-motion";
 ;
 

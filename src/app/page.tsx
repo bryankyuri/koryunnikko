@@ -23,12 +23,15 @@ import { HiShieldCheck } from "react-icons/hi";
 import { RiShoppingCartFill } from "react-icons/ri";
 import { dataTestimoni } from "./_lib/model/arrayTestimoni";
 import { AiTwotoneLike } from "react-icons/ai";
+import Link from "next/link";
+import { HeaderMobile } from "./_lib/Header/mobile";
 
 export default function Home() {
   const { dateVisit } = useContext(AppContext);
-  console.log(dateVisit);
   return (
     <>
+      <HeaderMobile />
+
       <div className="w-full flex justify-center bg-slate-100 ">
         <div className="max-w-[410px] shadow-md w-full pb-[150px] bg-white">
           <div className="w-full bg-[#bd1c2e] p-6 text-white text-center ">
@@ -64,15 +67,16 @@ export default function Home() {
               <div className="max-w-[22%] text-center w-full">Detik</div>
             </div>
             <div className="font-light">
-              Beli 2 untuk tambahan potongan 5%. Pengecualian berlaku.{" "}
-              <a
-                href="https://shopee.co.id/CATOKAN-MURAH-Catok-KN-129-Koryu-Nikko-PROMO-i.40879198.2393068072?sp_atk=07b1d348-031e-41ee-8a6c-1cdd0d9d6319&xptdk=07b1d348-031e-41ee-8a6c-1cdd0d9d6319"
+              Belanja melalui Koryu Nikko Official Store untuk ekstra diskon
+              gratis ongkir.&nbsp;
+              <Link
+                href="/link-to-shop"
+                className="underline "
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline "
               >
                 Belanja sekarang
-              </a>
+              </Link>
             </div>
           </div>
           <div className=" font-semibold w-full text-center text-2xl my-8 nunito px-4">
@@ -147,7 +151,7 @@ export default function Home() {
             </div>
             <ol className=" list-decimal pl-4 mt-4 nunito">
               <li className="mb-2">Rambut dibiarkan lembab dalam waktu lama</li>
-              <li className="mb-2">Tidak tidak kering dengan sempurna</li>
+              <li className="mb-2">Tidak kering dengan sempurna</li>
               <li className="mb-2">
                 Kulit kepala tidak bisa bernafas karena tertutup topi/hijab/helm
               </li>
@@ -156,19 +160,13 @@ export default function Home() {
 
           <div className="w-full ">
             <div className="w-full flex justify-center ml-3">
-              <a
-                href="https://shopee.co.id/CATOKAN-MURAH-Catok-KN-129-Koryu-Nikko-PROMO-i.40879198.2393068072?sp_atk=07b1d348-031e-41ee-8a6c-1cdd0d9d6319&xptdk=07b1d348-031e-41ee-8a6c-1cdd0d9d6319"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Image
-                  src="/title2.png"
-                  alt="koryunikko"
-                  width={380}
-                  height={115}
-                  priority
-                />
-              </a>
+              <Image
+                src="/title2.png"
+                alt="koryunikko"
+                width={380}
+                height={115}
+                priority
+              />
             </div>
             <Swiper
               navigation={true}
@@ -302,7 +300,7 @@ export default function Home() {
             <ul className="list-disc pl-4 mt-4">
               <li>Warna hitam dan putih</li>
               <li>Lebar plat 2” (±5 cm)</li>
-              <li>Listruk 55 W (220 - 240 V)</li>
+              <li>Listrik 55 W (220 - 240 V)</li>
               <li>Sistem pengaturan suhu</li>
             </ul>
             <div className="flex">
@@ -315,16 +313,6 @@ export default function Home() {
               />
             </div>
           </div>
-
-          {/* <div className="w-full flex justify-center ">
-            <Image
-              src="/pesan.png"
-              alt="pesan"
-              width={300}
-              height={70}
-              priority
-            />
-          </div> */}
 
           <div className="bg-[#bd1c2e] text-white mt-8">
             <div className="w-full py-4 px-6 ">
@@ -454,8 +442,16 @@ export default function Home() {
                 <div className="w-full flex justify-start items-start mt-4 mb-2 gap-[8px]">
                   {item.image.map((itemImage, index) => {
                     return (
-                      <div className="w-[32%] h-[115px] flex shadow-d" key={"image" + index}>
-                        <Image src={itemImage} alt="pesan" width={125} height={125}/>
+                      <div
+                        className="w-[32%] h-[115px] flex shadow-d"
+                        key={"image" + index}
+                      >
+                        <Image
+                          src={itemImage}
+                          alt="pesan"
+                          width={125}
+                          height={125}
+                        />
                       </div>
                     );
                   })}
@@ -468,12 +464,17 @@ export default function Home() {
       <div className="w-full flex justify-center fixed bottom-0 left-0 bg-white shadow-inner z-10 pt-4">
         <div className="w-full relative flex justify-center mb-4">
           <div className="w-full animate-pulse bg-orange-500 absolute z-0"></div>
-          <a className="px-4 py-3 flex rounded-xl bg-orange-500 z-1 max-w-[250px] mb-4 items-center">
+          <Link
+            href="/link-to-shop"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-3 flex rounded-xl bg-orange-500 z-1 max-w-[250px] mb-4 items-center"
+          >
             <RiShoppingCartFill className="text-[32px] text-white" />
             <div className="font-semibold text-lg text-white ml-2 leading-none nunito">
-              PESAN SEKARANG
+              BELANJA SEKARANG
             </div>
-          </a>
+          </Link>
         </div>
       </div>
     </>

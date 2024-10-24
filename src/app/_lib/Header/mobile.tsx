@@ -15,28 +15,11 @@ const varFadeInOutFullMobile = {
 };
 
 export const HeaderMobile = () => {
-  // type menuItem = {
-  //   label: string;
-  //   url: string;
-  // };
-
   const [showModalAbout, setShowModalAbout] = useState<boolean>(false);
-  // const menuItems = [
-  //   {
-  //     label: "About",
-  //     url: "/",
-  //   },
-  // ];
 
   return (
     <div className="w-full py-2 shadow-md shadow-[rgba(0,0,0,0.2)] px-6">
       <div className="max-w-[1024px] flex justify-center items-center text-[black] mx-auto">
-        {/* <button
-          className="dark:text-white text-[18px]"
-          onClick={() => setShowMenu(true)}
-        >
-          <GiHamburgerMenu />
-        </button> */}
         <button onClick={() => setShowModalAbout(true)}>
           <Image src="/logo-koryu.png" alt="logo" width={57} height={57} priority />
         </button>
@@ -55,7 +38,7 @@ export const HeaderMobile = () => {
             <div className="w-full max-w-[500px] shadow-lg px-6 py-8 bg-[#ffffff]  rounded-xl text-left">
               <div className="flex w-full items-center justify-between  mb-6">
                 <Image
-                  src="/logo.jpg"
+                  src="/logo-koryu.png"
                   alt="logo"
                   width={94}
                   height={57}
