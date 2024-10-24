@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 // Import Swiper React components
 import { AppContext } from "./_lib/Context/appContext";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -28,10 +28,74 @@ import { HeaderMobile } from "./_lib/Header/mobile";
 
 export default function Home() {
   const { dateVisit } = useContext(AppContext);
+  const [isShowStickyPromo, setIsShowStickyPromo] = useState(false);
+
+  useEffect(() => {
+    const listenToScroll = () => {
+      const winScroll = document.documentElement.scrollTop;
+      let tempIsShrink = isShowStickyPromo;
+      const shrinkPoint = 300;
+      console.log(shrinkPoint);
+      if (winScroll > shrinkPoint) {
+        if (!tempIsShrink) {
+          tempIsShrink = true;
+        }
+      } else if (winScroll <= shrinkPoint) {
+        if (tempIsShrink) {
+          tempIsShrink = false;
+        }
+      }
+      setIsShowStickyPromo(tempIsShrink);
+    };
+
+    document.addEventListener("scroll", listenToScroll);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <>
       <HeaderMobile />
-
+      <div
+        className={`w-full fixed ${
+          isShowStickyPromo ? "top-0" : "top-[-150px]"
+        } z-10 transition-all duration-200 left 0 flex justify-center bg-white shadow-md`}
+      >
+        <div className="max-w-[410px] w-full bg-white  mx-4 flex justify-between items-center">
+          <div
+            className="w-[240px] bg-[#bd1c2e] mx-2 text-center text-white rounded-lg px-2 py-1 mypulse"
+          >
+            Promo Terbatas !
+          </div>
+          <div className="flex flex-col w-full bg-[#bd1c2e] p-4 py-2 ">
+            <Countdown
+              date={new Date(dateVisit)}
+              renderer={({ days, hours, minutes, seconds }) => {
+                return (
+                  <div className="flex w-full justify-between text-center ">
+                    <div className="max-w-[22%] py-[2px] border-2 border-white w-full bg-white text-red-600">
+                      {days}
+                    </div>
+                    <div className="max-w-[22%] py-[2px] border-2 border-white w-full bg-white text-red-600">
+                      {hours}
+                    </div>
+                    <div className="max-w-[22%] py-[2px] border-2 border-white w-full bg-white text-red-600">
+                      {minutes}
+                    </div>
+                    <div className="max-w-[22%] py-[2px] border-2 border-white w-full bg-white text-red-600">
+                      {seconds}
+                    </div>
+                  </div>
+                );
+              }}
+            />
+            <div className="flex w-full justify-between px-2 mt-2 text-white text-[12px] leading-none">
+              <div className="max-w-[22%] text-center w-full">Hari</div>
+              <div className="max-w-[22%] text-center w-full">Jam</div>
+              <div className="max-w-[22%] text-center w-full">Menit</div>
+              <div className="max-w-[22%] text-center w-full">Detik</div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="w-full flex justify-center bg-slate-100 ">
         <div className="max-w-[410px] shadow-md w-full pb-[150px] bg-white">
           <div className="w-full bg-[#bd1c2e] p-6 text-white text-center ">
@@ -67,7 +131,7 @@ export default function Home() {
               <div className="max-w-[22%] text-center w-full">Detik</div>
             </div>
             <div className="font-light">
-              Belanja melalui Koryu Nikko Official Store untuk ekstra diskon
+              Belanja melalui Koryu Nikko Official Store untuk ekstra diskon dan
               gratis ongkir.&nbsp;
               <Link
                 href="/link-to-shop"
