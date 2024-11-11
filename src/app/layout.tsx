@@ -2,7 +2,7 @@
 import type { Metadata } from "next";
 import { Nunito, Open_Sans,Jost } from "next/font/google";
 import localfont from "next/font/local"
-
+import { GoogleAnalytics } from '@next/third-parties/google'
 import "./globals.css";
 import { Providers } from "./providers";
 import { AppProvider } from "./_lib/Context/appContext";
@@ -69,6 +69,7 @@ export default function RootLayout({
           <Providers>{children}</Providers>
         </AppProvider>
       </body>
+      <GoogleAnalytics gaId="G-67148GDS3Y" />
     </html>
   );
 }
